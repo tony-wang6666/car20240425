@@ -276,6 +276,23 @@
             tr_wo_detail_add()
         })
         var csrfToken = $('meta[name="csrf-token"]').attr('content');
+        // 工單號碼
+        function get_wo_number() {
+            $.ajax({
+                type: 'post',
+                url: '{!! URL::route('get_wo_number') !!}',
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken // 附加CSRF令牌到標頭中
+                },
+                success: function(data) {
+                    $('#wo_number').val(data); 
+                },
+                error: function() {
+                    console.log('error');
+                }
+            });
+        }
+        get_wo_number()
         //維修時數
         $('#wo_in_time, #wo_out_time').on("change", function() {
             var wo_in_time = $('#wo_in_time').val();

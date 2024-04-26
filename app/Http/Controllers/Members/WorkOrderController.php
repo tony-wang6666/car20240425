@@ -264,6 +264,10 @@ class WorkOrderController extends Controller
 
 
     #--ajax--
+    public function get_wo_number(Request $request){ //獲取工單編號
+        return HelpController::create_wo_number();
+    }
+
     public function vehicle_data(Request $request){ //獲取載具資料
         if (request()->isMethod('POST')) {
             $vehicle_number = $request->vehicle_number;
