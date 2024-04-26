@@ -11,12 +11,22 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+    <!-- icon圖像 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     {{-- bootstrap 5.3 --}}
     <link href="{{ asset('bootstrap5.3/bootstrap.min.css') }}" rel="stylesheet">
     {{-- datatables --}}
     <link href="{{ asset('datatables2.0/datatables.min.css') }}" rel="stylesheet">
     <script src="{{ asset('datatables2.0/datatables.min.js') }}"></script>
 
+    <style>
+        .navbar-nav .nav-item .active { /* 底線效果 */
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border-bottom: 1px solid #000; 
+        }
+    </style>
 </head>
 
 <body>
@@ -51,6 +61,24 @@
             };
         </script>
     @endif
+
+    <script>
+        $('.no_submit').on('keydown', 'input, select, textarea', function(e) { //enter按鍵 類似於 tab按鍵
+            if (e.key === "Enter") {
+                var self = $(this),
+                    form = self.parents('form:eq(0)'),
+                    focusable, next;
+                focusable = form.find('input,a,select,button,textarea').filter(':visible');
+                next = focusable.eq(focusable.index(this) + 1);
+                if (next.length) {
+                    next.focus();
+                } else {
+                    // form.submit(); //最後一個就送出
+                }
+                return false;
+            }
+        });
+    </script>
 </body>
 
 </html>
