@@ -14,6 +14,11 @@
                             <a class="nav-link @if ($page == 'wo_page') active @endif" aria-current="page" href="{{ route('MemberWorkOrderList') }}">工單</a>
                         </li>
                     @endif
+                    {{-- @if (in_array('MemberWorkOrder', session('WebAccess') ?? []))
+                        <li class="nav-item">
+                            <a class="nav-link @if ($page == 'wo_page') active @endif" aria-current="page" href="{{ route('MemberWorkOrderList') }}">材料單</a>
+                        </li>
+                    @endif --}}
                     
                     
                     {{-- <li class="nav-item dropdown">

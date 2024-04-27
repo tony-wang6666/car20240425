@@ -29,6 +29,7 @@ class LoginController extends Controller
             if($staff_information && $DB_web_access){ //需要有登入帳號 與 網頁使用權限
                 //檢查是否有頁面權限
                 $WebAccess = explode(',',$DB_web_access[0]->wp_name_group); //網頁使用權限
+                $WebAccess[] = 'MemberWorkOrder'; //預設權限，之後要刪除
                 session(['LoginAcc' => $staff_information->s_acc]);
                 session(['LoginName' => $staff_information->s_name]);
                 session(['LoginRole' => 'Member']);
