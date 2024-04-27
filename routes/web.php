@@ -33,7 +33,7 @@ Route::match(['get', 'post'],'/MemberWorkOrderList', [WorkOrderController::class
 // Route::match(['get', 'post'],'/WODetailDelete', [WorkOrderController::class, 'WODetailDelete'])->name('WODetailDelete'); //工單明細刪除(被編輯取代)
 
 
-//ajax
+//ajax 1
 Route::match(['post'],'/get_wo_number', [WorkOrderController::class, 'get_wo_number'])->name('get_wo_number'); #獲取工單編號
 Route::match(['post'],'/vehicle_data', [WorkOrderController::class, 'vehicle_data'])->name('vehicle_data'); #獲取汽車資料
 // Route::match(['post'],'/vehicle_part_data', [WorkOrderController::class, 'vehicle_part_data'])->name('vehicle_part_data'); #獲取汽車零件資料 被tr_wo_detail_add() 取代
